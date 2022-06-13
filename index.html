@@ -1,52 +1,16 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <title>rock_paper_scisscors</title>
-</head>
-<body>
-    <script>
-            let playerWin=0;                               //playerwin declaration
-            let computerWin=0;
-        game();
-        function computerPlay(){
-            let number=Math.floor(Math.random()*3)+1;
-            console.log(number)
-            if (number ===1){
-                return 'Rock';
-            }
-            else if (number ===2){
-                return 'Scissors';
-            }
-            else {
-                return 'Paper';
-            }
-        }
-        function playRound(playerSelection,computerSelection,player,computer){
-            if(playerSelection.toLowerCase() === 'rock' && computerSelection === 'Scissors' ||
-            playerSelection.toLowerCase() === 'paper'&& computerSelection === 'Rock' ||
-            playerSelection.toLowerCase() === 'scissors'&& computerSelection === 'Paper')
-            {
-                playerWin++;                         //This is not incementing my playerwin
-                return ('You Win!'+' '+playerSelection.charAt(0).toUpperCase()+playerSelection.toLowerCase().slice(1)+' beats '+computerSelection );
-            }
-            else if(computerSelection===(playerSelection.charAt(0).toUpperCase()+playerSelection.toLowerCase().slice(1))){
-                return 'Draw';
-            }
-            else{
-                computerWin++;                        //this is not incrementing my computerwin
-                return ('You Lose!'+' '+computerSelection+' beats '+playerSelection.charAt(0).toUpperCase()+playerSelection.toLowerCase().slice(1) );
-            }
-        }
-        function game()
-        {
-            for(let i=0;i<5;i++)
-            {
-                let playerSelection=prompt('enter your choice');
-                console.log(playRound(playerSelection,computerPlay()));
-            }
-        if(playerWin>computerWin){console.log('you win the game');}
-        else if(playerWin===computerWin){console.log('you Draw the game');}
-        if(playerWin<computerWin){console.log('you lost the game');}
-        }
-        </script>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>rock_paper_scisscors</title>
+        <script defer src="rockpaper.js"></script>
+    </head>
+    <body>
+            <button class="rock">rock</button>
+            <button class="paper">paper</button>
+            <button class="scissor">scissor</button>
+            <div class="round">Round 0</div>
+            <div class="result">Score 0-0</div>
+            <div class="thisRound"></div>
+    </body>
+</html>
